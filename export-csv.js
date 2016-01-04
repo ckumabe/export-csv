@@ -64,7 +64,11 @@
                     j = j + 1;
                 }
 
-                each(series.points, function (point, pIdx) {
+                var pointsToExport = options.raw && options.raw === true ? 
+                  series.options.data :
+                  series.points;
+
+                each(pointsToExport, function (point, pIdx) {
                     var key = requireSorting ? point.x : pIdx,
                         prop,
                         val;
